@@ -1,0 +1,15 @@
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\bin\Debug\net6.0\Chronos.Avaliacao.Conexao.deps.json
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\bin\Debug\net6.0\Chronos.Avaliacao.Conexao.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\bin\Debug\net6.0\Chronos.Avaliacao.Conexao.pdb
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\bin\Debug\net6.0\Chronos.Avaliacao.Entidade.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\bin\Debug\net6.0\Chronos.Avaliacao.Entidade.pdb
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.csproj.AssemblyReference.cache
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.GeneratedMSBuildEditorConfig.editorconfig
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.AssemblyInfoInputs.cache
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.AssemblyInfo.cs
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.csproj.CoreCompileInputs.cache
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.csproj.CopyComplete
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\refint\Chronos.Avaliacao.Conexao.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\Chronos.Avaliacao.Conexao.pdb
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.Conexao\obj\Debug\net6.0\ref\Chronos.Avaliacao.Conexao.dll

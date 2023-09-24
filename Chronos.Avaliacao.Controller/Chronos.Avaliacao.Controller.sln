@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.Controller", "Chronos.Avaliacao.Controller.csproj", "{C6B58454-BFDC-4BDB-8EE7-9BBA7A25495B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.Conexao", "..\Chronos.Avaliacao.Conexao\Chronos.Avaliacao.Conexao.csproj", "{9B727D99-574A-4C87-9314-D781AA8FAD0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.Repositorio", "..\Chronos.Avaliacao.Repositorio\Chronos.Avaliacao.Repositorio.csproj", "{13E2024D-2723-49DC-86C6-32033CA91575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.Negocio", "..\Chronos.Avaliacao.Negocio\Chronos.Avaliacao.Negocio.csproj", "{14C21357-645A-4EE1-9BC6-18B01A152883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.Entidade", "..\Chronos.Avaliacao.Entidade\Chronos.Avaliacao.Entidade.csproj", "{6275B50A-A655-46D2-B8F7-C5E57C7CC0A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronos.Avaliacao.DTO", "..\Chronos.Avaliacao.DTO\Chronos.Avaliacao.DTO.csproj", "{6A81B7EC-CC22-4C96-9A51-23119A52AD67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6B58454-BFDC-4BDB-8EE7-9BBA7A25495B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B58454-BFDC-4BDB-8EE7-9BBA7A25495B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B58454-BFDC-4BDB-8EE7-9BBA7A25495B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B58454-BFDC-4BDB-8EE7-9BBA7A25495B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B727D99-574A-4C87-9314-D781AA8FAD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B727D99-574A-4C87-9314-D781AA8FAD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B727D99-574A-4C87-9314-D781AA8FAD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B727D99-574A-4C87-9314-D781AA8FAD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E2024D-2723-49DC-86C6-32033CA91575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E2024D-2723-49DC-86C6-32033CA91575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E2024D-2723-49DC-86C6-32033CA91575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E2024D-2723-49DC-86C6-32033CA91575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14C21357-645A-4EE1-9BC6-18B01A152883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C21357-645A-4EE1-9BC6-18B01A152883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C21357-645A-4EE1-9BC6-18B01A152883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C21357-645A-4EE1-9BC6-18B01A152883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6275B50A-A655-46D2-B8F7-C5E57C7CC0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6275B50A-A655-46D2-B8F7-C5E57C7CC0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6275B50A-A655-46D2-B8F7-C5E57C7CC0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6275B50A-A655-46D2-B8F7-C5E57C7CC0A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A81B7EC-CC22-4C96-9A51-23119A52AD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A81B7EC-CC22-4C96-9A51-23119A52AD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A81B7EC-CC22-4C96-9A51-23119A52AD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A81B7EC-CC22-4C96-9A51-23119A52AD67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBBD13FB-C42F-412B-A664-AE4C6DB3C053}
+	EndGlobalSection
+EndGlobal

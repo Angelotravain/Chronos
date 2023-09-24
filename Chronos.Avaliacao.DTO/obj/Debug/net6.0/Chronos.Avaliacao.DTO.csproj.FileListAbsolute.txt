@@ -1,0 +1,11 @@
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\bin\Debug\net6.0\Chronos.Avaliacao.DTO.deps.json
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\bin\Debug\net6.0\Chronos.Avaliacao.DTO.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\bin\Debug\net6.0\Chronos.Avaliacao.DTO.pdb
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.AssemblyInfoInputs.cache
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.AssemblyInfo.cs
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.csproj.CoreCompileInputs.cache
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\refint\Chronos.Avaliacao.DTO.dll
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\Chronos.Avaliacao.DTO.pdb
+D:\Itens\Axiom Sistemas\Nova pasta\Chronos\Chronos.Avaliacao.DTO\obj\Debug\net6.0\ref\Chronos.Avaliacao.DTO.dll
