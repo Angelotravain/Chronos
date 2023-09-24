@@ -12,14 +12,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         private readonly List<Agendamento> _agendamentos = new List<Agendamento>();
         private int _nextId = 1;
 
-        // Endpoint para obter todos os agendamentos (GET)
         [HttpGet]
         public IActionResult GetAllAgendamentos()
         {
             return Ok(_agendamentos);
         }
 
-        // Endpoint para obter um agendamento por ID (GET)
         [HttpGet("{id}")]
         public IActionResult GetAgendamentoById(int id)
         {
@@ -31,7 +29,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return Ok(agendamento);
         }
 
-        // Endpoint para criar um novo agendamento (POST)
         [HttpPost]
         public IActionResult CreateAgendamento([FromBody] Agendamento novoAgendamento)
         {
@@ -46,7 +43,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return CreatedAtAction(nameof(GetAgendamentoById), new { id = novoAgendamento.Id }, novoAgendamento);
         }
 
-        // Endpoint para atualizar um agendamento (PUT)
         [HttpPut("{id}")]
         public IActionResult UpdateAgendamento(int id, [FromBody] Agendamento agendamentoAtualizado)
         {
@@ -62,12 +58,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             }
 
             existente.Nome = agendamentoAtualizado.Nome;
-            // Atualize outros campos conforme necessário
 
             return NoContent();
         }
 
-        // Endpoint para atualizar parcialmente um agendamento (PATCH)
         [HttpPatch("{id}")]
         public IActionResult PartialUpdateAgendamento(int id, [FromBody] Dictionary<string, object> campos)
         {
@@ -88,13 +82,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
                 {
                     existente.Nome = campo.Value.ToString();
                 }
-                // Atualize outros campos conforme necessário
             }
 
             return NoContent();
         }
 
-        // Endpoint para excluir um agendamento (DELETE)
         [HttpDelete("{id}")]
         public IActionResult DeleteAgendamento(int id)
         {

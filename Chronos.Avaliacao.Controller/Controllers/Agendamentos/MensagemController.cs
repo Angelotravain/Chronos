@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +12,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         private readonly List<Mensagem> _mensagens = new List<Mensagem>();
         private int _nextId = 1;
 
-        // Endpoint para obter todas as mensagens (GET)
         [HttpGet]
         public IActionResult GetAllMensagens()
         {
             return Ok(_mensagens);
         }
 
-        // Endpoint para obter uma mensagem por ID (GET)
         [HttpGet("{id}")]
         public IActionResult GetMensagemById(int id)
         {
@@ -32,7 +29,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return Ok(mensagem);
         }
 
-        // Endpoint para criar uma nova mensagem (POST)
         [HttpPost]
         public IActionResult CreateMensagem([FromBody] Mensagem novaMensagem)
         {
@@ -47,7 +43,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return CreatedAtAction(nameof(GetMensagemById), new { id = novaMensagem.Id }, novaMensagem);
         }
 
-        // Endpoint para atualizar uma mensagem (PUT)
         [HttpPut("{id}")]
         public IActionResult UpdateMensagem(int id, [FromBody] Mensagem mensagemAtualizada)
         {
@@ -63,12 +58,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             }
 
             existente.Texto = mensagemAtualizada.Texto;
-            // Atualize outros campos conforme necessário
 
             return NoContent();
         }
 
-        // Endpoint para atualizar parcialmente uma mensagem (PATCH)
         [HttpPatch("{id}")]
         public IActionResult PartialUpdateMensagem(int id, [FromBody] Dictionary<string, object> campos)
         {
@@ -89,13 +82,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
                 {
                     existente.Texto = campo.Value.ToString();
                 }
-                // Atualize outros campos conforme necessário
             }
 
             return NoContent();
         }
 
-        // Endpoint para excluir uma mensagem (DELETE)
         [HttpDelete("{id}")]
         public IActionResult DeleteMensagem(int id)
         {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +12,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
         private readonly List<Anotacao> _anotacoes = new List<Anotacao>();
         private int _nextId = 1;
 
-        // Endpoint para obter todas as anotações (GET)
         [HttpGet]
         public IActionResult GetAllAnotacoes()
         {
             return Ok(_anotacoes);
         }
 
-        // Endpoint para obter uma anotação por ID (GET)
         [HttpGet("{id}")]
         public IActionResult GetAnotacaoById(int id)
         {
@@ -32,7 +29,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
             return Ok(anotacao);
         }
 
-        // Endpoint para criar uma nova anotação (POST)
         [HttpPost]
         public IActionResult CreateAnotacao([FromBody] Anotacao novaAnotacao)
         {
@@ -47,7 +43,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
             return CreatedAtAction(nameof(GetAnotacaoById), new { id = novaAnotacao.Id }, novaAnotacao);
         }
 
-        // Endpoint para atualizar uma anotação (PUT)
         [HttpPut("{id}")]
         public IActionResult UpdateAnotacao(int id, [FromBody] Anotacao anotacaoAtualizada)
         {
@@ -63,12 +58,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
             }
 
             existente.Texto = anotacaoAtualizada.Texto;
-            // Atualize outros campos conforme necessário
 
             return NoContent();
         }
 
-        // Endpoint para atualizar parcialmente uma anotação (PATCH)
         [HttpPatch("{id}")]
         public IActionResult PartialUpdateAnotacao(int id, [FromBody] Dictionary<string, object> campos)
         {
@@ -89,13 +82,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
                 {
                     existente.Texto = campo.Value.ToString();
                 }
-                // Atualize outros campos conforme necessário
             }
 
             return NoContent();
         }
 
-        // Endpoint para excluir uma anotação (DELETE)
         [HttpDelete("{id}")]
         public IActionResult DeleteAnotacao(int id)
         {

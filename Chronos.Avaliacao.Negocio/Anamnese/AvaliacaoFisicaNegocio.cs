@@ -3,11 +3,6 @@ using Chronos.Avaliacao.Entidade.Cadastros;
 using Chronos.Avaliacao.Negocio.Interface.Anamnese;
 using Chronos.Avaliacao.Repositorio.Inteface.Anamnesse;
 using Chronos.Avaliacao.Repositorio.Inteface.Cadastros;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chronos.Avaliacao.Negocio.Anamnese
 {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +12,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         private readonly List<HorarioDisponivel> _horarios = new List<HorarioDisponivel>();
         private int _nextId = 1;
 
-        // Endpoint para obter todos os horários disponíveis (GET)
         [HttpGet]
         public IActionResult GetAllHorarios()
         {
             return Ok(_horarios);
         }
 
-        // Endpoint para obter um horário disponível por ID (GET)
         [HttpGet("{id}")]
         public IActionResult GetHorarioById(int id)
         {
@@ -32,7 +29,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return Ok(horario);
         }
 
-        // Endpoint para criar um novo horário disponível (POST)
         [HttpPost]
         public IActionResult CreateHorario([FromBody] HorarioDisponivel novoHorario)
         {
@@ -47,7 +43,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             return CreatedAtAction(nameof(GetHorarioById), new { id = novoHorario.Id }, novoHorario);
         }
 
-        // Endpoint para atualizar um horário disponível (PUT)
         [HttpPut("{id}")]
         public IActionResult UpdateHorario(int id, [FromBody] HorarioDisponivel horarioAtualizado)
         {
@@ -63,12 +58,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             }
 
             existente.Hora = horarioAtualizado.Hora;
-            // Atualize outros campos conforme necessário
 
             return NoContent();
         }
 
-        // Endpoint para atualizar parcialmente um horário disponível (PATCH)
         [HttpPatch("{id}")]
         public IActionResult PartialUpdateHorario(int id, [FromBody] Dictionary<string, object> campos)
         {
@@ -89,13 +82,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
                 {
                     existente.Hora = campo.Value.ToString();
                 }
-                // Atualize outros campos conforme necessário
             }
 
             return NoContent();
         }
 
-        // Endpoint para excluir um horário disponível (DELETE)
         [HttpDelete("{id}")]
         public IActionResult DeleteHorario(int id)
         {
