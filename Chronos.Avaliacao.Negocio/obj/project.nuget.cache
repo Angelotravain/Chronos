@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OJzQrTPFziVsvsgwTPlOzJhBafRKZgJkNI7DuQZDzc9ZkfovSLW6SzeuMS/y5kp88o9iAAiN+MKr2VQRBGq9jg==",
+  "dgSpecHash": "VMJsmR60iXYbRYXBKBB8kUV7yZeBz9OAViAtWR0/fy44bZofA95L4icLoKqsxGDnrSXEu64Kesyeeky52HwJlA==",
   "success": true,
-  "projectFilePath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Negocio\\Chronos.Avaliacao.Negocio.csproj",
+  "projectFilePath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Negocio\\Chronos.Avaliacao.Negocio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Angelo\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\Angelo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",

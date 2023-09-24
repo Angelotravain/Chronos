@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj": {}
+    "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj": {}
   },
   "projects": {
-    "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj": {
+    "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj",
+        "projectUniqueName": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj",
         "projectName": "Chronos.Avaliacao.Conexao",
-        "projectPath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj",
+        "projectPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj",
         "packagesPath": "C:\\Users\\Angelo\\.nuget\\packages\\",
-        "outputPath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Conexao\\obj\\",
+        "outputPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,8 +34,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj": {
-                "projectPath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj"
+              "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj": {
+                "projectPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj": {
+    "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj",
+        "projectUniqueName": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj",
         "projectName": "Chronos.Avaliacao.Entidade",
-        "projectPath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj",
+        "projectPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\Chronos.Avaliacao.Entidade.csproj",
         "packagesPath": "C:\\Users\\Angelo\\.nuget\\packages\\",
-        "outputPath": "D:\\Itens\\Axiom Sistemas\\Nova pasta\\Chronos\\Chronos.Avaliacao.Entidade\\obj\\",
+        "outputPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Entidade\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

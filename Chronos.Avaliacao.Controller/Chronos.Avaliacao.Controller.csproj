@@ -5,11 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Chronos.Avaliacao.Conexao\Chronos.Avaliacao.Conexao.csproj" />
+    <ProjectReference Include="..\Chronos.Avaliacao.DTO\Chronos.Avaliacao.DTO.csproj" />
     <ProjectReference Include="..\Chronos.Avaliacao.Negocio\Chronos.Avaliacao.Negocio.csproj" />
   </ItemGroup>
 
