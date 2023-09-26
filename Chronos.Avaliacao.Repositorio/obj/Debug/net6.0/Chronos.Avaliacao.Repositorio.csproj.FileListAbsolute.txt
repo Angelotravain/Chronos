@@ -19,8 +19,10 @@ D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositor
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Repositorio.dll
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Repositorio.pdb
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Conexao.dll
+D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.DTO.dll
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Entidade.dll
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Conexao.pdb
+D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.DTO.pdb
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.Entidade.pdb
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\obj\Debug\net6.0\Chronos.Avaliacao.Repositorio.csproj.AssemblyReference.cache
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\obj\Debug\net6.0\Chronos.Avaliacao.Repositorio.GeneratedMSBuildEditorConfig.editorconfig
@@ -32,5 +34,3 @@ D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositor
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\obj\Debug\net6.0\refint\Chronos.Avaliacao.Repositorio.dll
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\obj\Debug\net6.0\Chronos.Avaliacao.Repositorio.pdb
 D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\obj\Debug\net6.0\ref\Chronos.Avaliacao.Repositorio.dll
-D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.DTO.dll
-D:\Itens\Axiom Sistemas\Chronos - Geral\Back\Chronos\Chronos.Avaliacao.Repositorio\bin\Debug\net6.0\Chronos.Avaliacao.DTO.pdb

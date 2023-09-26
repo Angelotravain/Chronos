@@ -19,5 +19,8 @@ namespace Chronos.Avaliacao.Entidade.Agendamentos
 
         [Column("conteudodamensagem")]
         public string? ConteudoDaMensagem { get; set; }
+
+        [Column("idagendamento")]
+        public int idAgendamento { get; set; }
     }
 }

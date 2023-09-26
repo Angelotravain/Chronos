@@ -6,8 +6,6 @@
 
         public int IdCliente { get; set; }
 
-        public int IdTreino { get; set; }
-
         public DateTime DataHoraDoAgendamento { get; set; }
 
         public string? StatusDoAgendamento { get; set; }

@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Agendamentos;
+using Chronos.Avaliacao.Entidade.Agendamentos;
+using Chronos.Avaliacao.Negocio.Interface.Agendamentos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
 {
@@ -9,19 +10,18 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
     [ApiController]
     public class MensagemController : ControllerBase
     {
-        private readonly List<Mensagem> _mensagens = new List<Mensagem>();
-        private int _nextId = 1;
-
-        [HttpGet]
-        public IActionResult GetAllMensagens()
+        private readonly IMensagemNegocio _negocio;
+        private readonly IMapper _mapper;
+        public MensagemController(IMensagemNegocio negocio, IMapper mapper)
         {
-            return Ok(_mensagens);
+            _negocio = negocio;
+            _mapper = mapper;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetMensagemById(int id)
+        [HttpGet("{idCliente}/{idAgendamento}")]
+        public IActionResult BuscarMensagemPorId(int idCliente, int idAgendamento)
         {
-            var mensagem = _mensagens.FirstOrDefault(m => m.Id == id);
+            var mensagem = _negocio.GetRepositorio().BuscarMensagemPorAgendamento(idCliente, idAgendamento);
             if (mensagem == null)
             {
                 return NotFound();
@@ -30,82 +30,40 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         }
 
         [HttpPost]
-        public IActionResult CreateMensagem([FromBody] Mensagem novaMensagem)
+        public IActionResult CriarMensagem([FromBody] MensagemDTO novaMensagem)
         {
             if (novaMensagem == null)
             {
                 return BadRequest();
             }
 
-            novaMensagem.Id = _nextId++;
-            _mensagens.Add(novaMensagem);
+            _negocio.GetRepositorio().SalvarMensagem(_mapper.Map<MensagemEntidade>(novaMensagem));
 
-            return CreatedAtAction(nameof(GetMensagemById), new { id = novaMensagem.Id }, novaMensagem);
+            return CreatedAtAction(nameof(BuscarMensagemPorId), new { id = novaMensagem.Id }, novaMensagem);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateMensagem(int id, [FromBody] Mensagem mensagemAtualizada)
+        public IActionResult EditarMensagem(int id, [FromBody] MensagemDTO mensagemAtualizada)
         {
             if (mensagemAtualizada == null || id != mensagemAtualizada.Id)
             {
                 return BadRequest();
             }
 
-            var existente = _mensagens.FirstOrDefault(m => m.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            existente.Texto = mensagemAtualizada.Texto;
-
-            return NoContent();
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult PartialUpdateMensagem(int id, [FromBody] Dictionary<string, object> campos)
-        {
-            if (campos == null)
-            {
-                return BadRequest();
-            }
-
-            var existente = _mensagens.FirstOrDefault(m => m.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            foreach (var campo in campos)
-            {
-                if (campo.Key.Equals("Texto", StringComparison.OrdinalIgnoreCase))
-                {
-                    existente.Texto = campo.Value.ToString();
-                }
-            }
+            _negocio.GetRepositorio().EditarMensagem(_mapper.Map<MensagemEntidade>(mensagemAtualizada));
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteMensagem(int id)
+        public IActionResult ExcluirMensagem(int id)
         {
-            var mensagem = _mensagens.FirstOrDefault(m => m.Id == id);
-            if (mensagem == null)
+            if (id == 0)
             {
                 return NotFound();
             }
-
-            _mensagens.Remove(mensagem);
-
+            _negocio.GetRepositorio().RemoverMensagem(id);
             return NoContent();
         }
-    }
-
-    public class Mensagem
-    {
-        public int Id { get; set; }
-        public string Texto { get; set; }
-        // Outros campos da mensagem
     }
 }

@@ -13,9 +13,6 @@ namespace Chronos.Avaliacao.Entidade.Agendamentos
         [Column("idcliente")]
         public int IdCliente { get; set; }
 
-        [Column("idtreino")]
-        public int IdTreino { get; set; }
-
         [Column("datahoradoagendamento")]
         public DateTime DataHoraDoAgendamento { get; set; }
 

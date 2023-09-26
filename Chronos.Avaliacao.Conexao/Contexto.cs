@@ -17,7 +17,6 @@ namespace Chronos.Avaliacao.Conexao
         public DbSet<ClienteEntidade> Clientes { get; set; }
         public DbSet<ExercicioEntidade> Exercicios { get; set; }
         public DbSet<FuncionarioEntidade> Funcionarios { get; set; }
-        public DbSet<HorarioDisponivelEntidade> HorariosDisponiveis { get; set; }
         public DbSet<MensagemEntidade> Mensagens { get; set; }
         public DbSet<PagamentoEntidade> Pagamentos { get; set; }
         public DbSet<PlanoTreinoEntidade> PlanosDeTreino { get; set; }

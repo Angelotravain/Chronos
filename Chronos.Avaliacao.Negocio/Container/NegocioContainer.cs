@@ -20,7 +20,6 @@ namespace Chronos.Avaliacao.Negocio.Container
             #region Injeção Negócios
 
             services.AddTransient<IAgendamentoNegocio, AgendamentoNegocio>();
-            services.AddTransient<IHorarioDisponivelNegocio, HorarioDisponivelNegocio>();
             services.AddTransient<IMensagemNegocio, MensagemNegocio>();
             services.AddTransient<IAnotacaoNegocio, AnotacaoNegocio>();
             services.AddTransient<IAvaliacaoFisicaNegocio, AvaliacaoFisicaNegocio>();

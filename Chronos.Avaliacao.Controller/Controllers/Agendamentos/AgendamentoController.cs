@@ -20,13 +20,13 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult GetAllAgendamentos()
+        public IActionResult BuscarTodosAgendamentos()
         {
             return Ok(_negocio.ListarTodosOsAgendamentos());
         }
 
         [HttpGet("{idCliente}")]
-        public IActionResult GetAgendamentoById(int idCliente)
+        public IActionResult BuscarAgendamentoPorId(int idCliente)
         {
             var agendamento = _negocio.ListarHistoricoAgendamentoCliente(idCliente);
             if (agendamento == null)
@@ -37,7 +37,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         }
 
         [HttpPost]
-        public IActionResult CreateAgendamento([FromBody] AgendamentoDTO novoAgendamento)
+        public IActionResult CriarAgendamento([FromBody] AgendamentoDTO novoAgendamento)
         {
             if (novoAgendamento == null)
             {
@@ -45,11 +45,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             }
             _negocio.SalvarAgendamento(_mapper.Map<AgendamentoEntidade>(novoAgendamento));
 
-            return CreatedAtAction(nameof(GetAgendamentoById), new { id = novoAgendamento.Id }, novoAgendamento);
+            return CreatedAtAction(nameof(BuscarAgendamentoPorId), new { id = novoAgendamento.Id }, novoAgendamento);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateAgendamento(int id, [FromBody] AgendamentoDTO agendamentoAtualizado)
+        public IActionResult EditarAgendamento(int id, [FromBody] AgendamentoDTO agendamentoAtualizado)
         {
             if (agendamentoAtualizado == null || id != agendamentoAtualizado.Id)
             {
@@ -66,7 +66,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         }
 
         [HttpPatch("{id}")]
-        public IActionResult PartialUpdateAgendamento(int id, [FromBody] Dictionary<string, object> campos)
+        public IActionResult EditarParcialAgendamento(int id, [FromBody] Dictionary<string, object> campos)
         {
             if (campos == null)
             {
@@ -83,7 +83,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteAgendamento(int id)
+        public IActionResult ExcluirAgendamento(int id)
         {
             var agendamento = _negocio.BuscarAgendamentoPorId(id);
             if (agendamento == null)

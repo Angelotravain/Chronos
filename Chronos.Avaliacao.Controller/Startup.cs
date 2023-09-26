@@ -1,4 +1,5 @@
 using Chronos.Avaliacao.Conexao;
+using Chronos.Avaliacao.Controller.Perfil.Container;
 using Chronos.Avaliacao.Negocio.Container;
 using Chronos.Avaliacao.Repositorio.Containers;
 using Microsoft.AspNetCore.Builder;
@@ -26,6 +27,7 @@ namespace Chronos.Avaliacao.Controller
         {
             services.AddNegocios();
             services.AddRepositorios();
+            services.AddMapeamentos();
             services.AddControllers();
 
             services.AddDbContext<Contexto>(options =>
