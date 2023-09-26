@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Agendamentos;
+using Chronos.Avaliacao.Entidade.Agendamentos;
+using Chronos.Avaliacao.Negocio.Interface.Agendamentos;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+
 
 namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
 {
@@ -9,19 +12,23 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
     [ApiController]
     public class AgendamentoController : ControllerBase
     {
-        private readonly List<Agendamento> _agendamentos = new List<Agendamento>();
-        private int _nextId = 1;
-
+        private readonly IAgendamentoNegocio _negocio;
+        private readonly IMapper _mapper;
+        public AgendamentoController(IAgendamentoNegocio negocio, IMapper mapper)
+        {
+            _negocio = negocio;
+            _mapper = mapper;
+        }
         [HttpGet]
         public IActionResult GetAllAgendamentos()
         {
-            return Ok(_agendamentos);
+            return Ok(_negocio.ListarTodosOsAgendamentos());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetAgendamentoById(int id)
+        [HttpGet("{idCliente}")]
+        public IActionResult GetAgendamentoById(int idCliente)
         {
-            var agendamento = _agendamentos.FirstOrDefault(a => a.Id == id);
+            var agendamento = _negocio.ListarHistoricoAgendamentoCliente(idCliente);
             if (agendamento == null)
             {
                 return NotFound();
@@ -30,34 +37,30 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         }
 
         [HttpPost]
-        public IActionResult CreateAgendamento([FromBody] Agendamento novoAgendamento)
+        public IActionResult CreateAgendamento([FromBody] AgendamentoDTO novoAgendamento)
         {
             if (novoAgendamento == null)
             {
                 return BadRequest();
             }
-
-            novoAgendamento.Id = _nextId++;
-            _agendamentos.Add(novoAgendamento);
+            _negocio.SalvarAgendamento(_mapper.Map<AgendamentoEntidade>(novoAgendamento));
 
             return CreatedAtAction(nameof(GetAgendamentoById), new { id = novoAgendamento.Id }, novoAgendamento);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateAgendamento(int id, [FromBody] Agendamento agendamentoAtualizado)
+        public IActionResult UpdateAgendamento(int id, [FromBody] AgendamentoDTO agendamentoAtualizado)
         {
             if (agendamentoAtualizado == null || id != agendamentoAtualizado.Id)
             {
                 return BadRequest();
             }
 
-            var existente = _agendamentos.FirstOrDefault(a => a.Id == id);
+            var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(agendamentoAtualizado));
             if (existente == null)
             {
                 return NotFound();
             }
-
-            existente.Nome = agendamentoAtualizado.Nome;
 
             return NoContent();
         }
@@ -70,18 +73,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
                 return BadRequest();
             }
 
-            var existente = _agendamentos.FirstOrDefault(a => a.Id == id);
+            var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(campos));
             if (existente == null)
             {
                 return NotFound();
-            }
-
-            foreach (var campo in campos)
-            {
-                if (campo.Key.Equals("Nome", StringComparison.OrdinalIgnoreCase))
-                {
-                    existente.Nome = campo.Value.ToString();
-                }
             }
 
             return NoContent();
@@ -90,22 +85,15 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
         [HttpDelete("{id}")]
         public IActionResult DeleteAgendamento(int id)
         {
-            var agendamento = _agendamentos.FirstOrDefault(a => a.Id == id);
+            var agendamento = _negocio.BuscarAgendamentoPorId(id);
             if (agendamento == null)
             {
                 return NotFound();
             }
 
-            _agendamentos.Remove(agendamento);
+            _negocio.ExcluirAgendamento(id);
 
             return NoContent();
         }
-    }
-
-    public class Agendamento
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        // Outros campos do agendamento
     }
 }

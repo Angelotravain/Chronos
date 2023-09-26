@@ -9,6 +9,7 @@
       "Chronos.Avaliacao.Repositorio/1.0.0": {
         "dependencies": {
           "Chronos.Avaliacao.Conexao": "1.0.0",
+          "Chronos.Avaliacao.DTO": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
         },
         "runtime": {
@@ -190,6 +191,11 @@
           "Chronos.Avaliacao.Conexao.dll": {}
         }
       },
+      "Chronos.Avaliacao.DTO/1.0.0": {
+        "runtime": {
+          "Chronos.Avaliacao.DTO.dll": {}
+        }
+      },
       "Chronos.Avaliacao.Entidade/1.0.0": {
         "runtime": {
           "Chronos.Avaliacao.Entidade.dll": {}
@@ -316,6 +322,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "Chronos.Avaliacao.Conexao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Chronos.Avaliacao.DTO/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -305,6 +305,16 @@
           "bin/placeholder/Chronos.Avaliacao.Conexao.dll": {}
         }
       },
+      "Chronos.Avaliacao.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Chronos.Avaliacao.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Chronos.Avaliacao.DTO.dll": {}
+        }
+      },
       "Chronos.Avaliacao.Entidade/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -741,6 +751,11 @@
       "path": "../Chronos.Avaliacao.Conexao/Chronos.Avaliacao.Conexao.csproj",
       "msbuildProject": "../Chronos.Avaliacao.Conexao/Chronos.Avaliacao.Conexao.csproj"
     },
+    "Chronos.Avaliacao.DTO/1.0.0": {
+      "type": "project",
+      "path": "../Chronos.Avaliacao.DTO/Chronos.Avaliacao.DTO.csproj",
+      "msbuildProject": "../Chronos.Avaliacao.DTO/Chronos.Avaliacao.DTO.csproj"
+    },
     "Chronos.Avaliacao.Entidade/1.0.0": {
       "type": "project",
       "path": "../Chronos.Avaliacao.Entidade/Chronos.Avaliacao.Entidade.csproj",
@@ -750,6 +765,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Chronos.Avaliacao.Conexao >= 1.0.0",
+      "Chronos.Avaliacao.DTO >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 7.0.0"
     ]
   },
@@ -790,6 +806,9 @@
           "projectReferences": {
             "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj": {
               "projectPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.Conexao\\Chronos.Avaliacao.Conexao.csproj"
+            },
+            "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.DTO\\Chronos.Avaliacao.DTO.csproj": {
+              "projectPath": "D:\\Itens\\Axiom Sistemas\\Chronos - Geral\\Back\\Chronos\\Chronos.Avaliacao.DTO\\Chronos.Avaliacao.DTO.csproj"
             }
           }
         }

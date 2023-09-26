@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chronos.Avaliacao.Conexao\Chronos.Avaliacao.Conexao.csproj" />
+    <ProjectReference Include="..\Chronos.Avaliacao.DTO\Chronos.Avaliacao.DTO.csproj" />
   </ItemGroup>
 
 </Project>
