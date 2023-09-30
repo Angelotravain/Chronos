@@ -30,7 +30,7 @@ namespace Chronos.Avaliacao.Repositorio.Agendamentos
         {
             _generico.Editar<AgendamentoEntidade>(agendamento, agendamento.Id);
 
-            return "Agendamento editado com sucesso com sucesso!";
+            return "Agendamento editado com sucesso!";
         }
         public IEnumerable<AgendamentoEntidade> ListarTodosOsAgendamentos()
         {

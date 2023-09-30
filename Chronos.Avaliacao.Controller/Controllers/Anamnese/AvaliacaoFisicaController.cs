@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Anamnese;
+using Chronos.Avaliacao.Entidade.Anamnese;
+using Chronos.Avaliacao.Negocio.Interface.Anamnese;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
 {
@@ -8,44 +10,30 @@ namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
     [ApiController]
     public class AvaliacaoFisicaController : ControllerBase
     {
-        private readonly List<AvaliacaoFisica> _avaliacoes = new List<AvaliacaoFisica>();
-        private int _nextId = 1;
-
-        [HttpGet]
-        public IActionResult GetAllAvaliacoes()
+        private readonly IAvaliacaoFisicaNegocio _avaliacaoFisicaNegocio;
+        private readonly IMapper _mapper;
+        public AvaliacaoFisicaController(IAvaliacaoFisicaNegocio avaliacaoFisicaNegocio, IMapper mapper)
         {
-            return Ok(_avaliacoes);
+            _avaliacaoFisicaNegocio = avaliacaoFisicaNegocio;
+            _mapper = mapper;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetAvaliacaoById(int id)
+        [HttpGet("{idCliente}")]
+        public AvaliacaoFisicaDTO BuscarAvaliacaoPorIdCliente(int idCliente)
         {
-            var avaliacao = _avaliacoes.FirstOrDefault(a => a.Id == id);
-            if (avaliacao == null)
-            {
-                return NotFound();
-            }
-            return Ok(avaliacao);
+            return _mapper.Map<AvaliacaoFisicaDTO>(_avaliacaoFisicaNegocio.GetRepositorio().RetornaAvaliacaoPorCliente(idCliente));
         }
 
         [HttpPost]
-        public IActionResult CreateAvaliacao([FromBody] AvaliacaoFisica novaAvaliacao)
+        public IActionResult CreateAvaliacao([FromBody] AvaliacaoFisicaDTO novaAvaliacao)
         {
             if (novaAvaliacao == null)
             {
                 return BadRequest();
             }
+            _avaliacaoFisicaNegocio.CriarAvaliacaoFisica(_mapper.Map<AvaliacaoFisicaEntidade>(novaAvaliacao));
 
-            novaAvaliacao.Id = _nextId++;
-            _avaliacoes.Add(novaAvaliacao);
-
-            return CreatedAtAction(nameof(GetAvaliacaoById), new { id = novaAvaliacao.Id }, novaAvaliacao);
+            return Ok();
         }
-    }
-
-    public class AvaliacaoFisica
-    {
-        public int Id { get; set; }
-        // Outros campos da avaliação física
     }
 }

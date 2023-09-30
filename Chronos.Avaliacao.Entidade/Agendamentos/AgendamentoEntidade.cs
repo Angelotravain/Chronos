@@ -19,7 +19,5 @@ namespace Chronos.Avaliacao.Entidade.Agendamentos
         [Column("statusdoagendamento")]
         public string? StatusDoAgendamento { get; set; }
 
-        [NotMapped]
-        public ICollection<ClienteEntidade>? Clientes { get; set; }
     }
 }

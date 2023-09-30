@@ -40,7 +40,7 @@ namespace Chronos.Avaliacao.Negocio.Anamnese
         }
         private int CalculaIdadeCliente(ClienteEntidade cliente)
         {
-            DateTime dataDeNascimento = (DateTime)cliente.DataNascimento; // Substitua com a data de nascimento real
+            DateTime dataDeNascimento = (DateTime)cliente.DataNascimento;
             DateTime dataAtual = DateTime.Today;
 
             int idade = dataAtual.Year - dataDeNascimento.Year;

@@ -20,9 +20,9 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult BuscarTodosAgendamentos()
+        public IEnumerable<AgendamentoDTO> BuscarTodosAgendamentos()
         {
-            return Ok(_negocio.ListarTodosOsAgendamentos());
+            return _mapper.Map<IEnumerable<AgendamentoDTO>>(_negocio.ListarTodosOsAgendamentos());
         }
 
         [HttpGet("{idCliente}")]
@@ -43,57 +43,36 @@ namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
             {
                 return BadRequest();
             }
-            _negocio.SalvarAgendamento(_mapper.Map<AgendamentoEntidade>(novoAgendamento));
-
-            return CreatedAtAction(nameof(BuscarAgendamentoPorId), new { id = novoAgendamento.Id }, novoAgendamento);
+            return Ok(_negocio.SalvarAgendamento(_mapper.Map<AgendamentoEntidade>(novoAgendamento)));
         }
 
         [HttpPut("{id}")]
         public IActionResult EditarAgendamento(int id, [FromBody] AgendamentoDTO agendamentoAtualizado)
         {
-            if (agendamentoAtualizado == null || id != agendamentoAtualizado.Id)
+            if (agendamentoAtualizado == null)
             {
                 return BadRequest();
             }
-
+            agendamentoAtualizado.Id = id;
             var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(agendamentoAtualizado));
             if (existente == null)
             {
                 return NotFound();
             }
 
-            return NoContent();
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult EditarParcialAgendamento(int id, [FromBody] Dictionary<string, object> campos)
-        {
-            if (campos == null)
-            {
-                return BadRequest();
-            }
-
-            var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(campos));
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            return NoContent();
+            return Ok(existente);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult ExcluirAgendamento(int id)
+        public IActionResult ExcluirAgendamento(int? id)
         {
-            var agendamento = _negocio.BuscarAgendamentoPorId(id);
-            if (agendamento == null)
+
+            if (id == null)
             {
                 return NotFound();
             }
 
-            _negocio.ExcluirAgendamento(id);
-
-            return NoContent();
+            return Ok(_negocio.ExcluirAgendamento((int)id));
         }
     }
 }

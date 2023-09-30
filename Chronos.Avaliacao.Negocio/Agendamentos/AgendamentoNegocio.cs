@@ -20,7 +20,7 @@ namespace Chronos.Avaliacao.Negocio.Agendamentos
                 if ((agendamentoAtual.DataHoraDoAgendamento >= agendamento.DataHoraDoAgendamento))
                     retorno = $"Esse cliente jé está agendado para a data {agendamentoAtual.DataHoraDoAgendamento.ToString("dd/MM/yyyy")}";
             }
-            if (!string.IsNullOrEmpty(retorno))
+            if (string.IsNullOrEmpty(retorno))
                 retorno = _repositorio.SalvarAgendamento(agendamento);
 
             return retorno;
@@ -38,7 +38,7 @@ namespace Chronos.Avaliacao.Negocio.Agendamentos
                 if ((agendamentoAtual.DataHoraDoAgendamento >= agendamento.DataHoraDoAgendamento))
                     retorno = $"Esse cliente jé está agendado para a data {agendamentoAtual.DataHoraDoAgendamento.ToString("dd/MM/yyyy")}";
             }
-            if (!string.IsNullOrEmpty(retorno))
+            if (string.IsNullOrEmpty(retorno))
                 retorno = _repositorio.EditarAgendamento(agendamento);
 
             return retorno;

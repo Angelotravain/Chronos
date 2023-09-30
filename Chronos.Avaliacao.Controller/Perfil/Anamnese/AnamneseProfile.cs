@@ -9,7 +9,9 @@ namespace Chronos.Avaliacao.Controller.Perfil.Anamnese
         public AnamneseProfile()
         {
             CreateMap<AnotacaoDTO, AnotacaoEntidade>();
+            CreateMap<AnotacaoEntidade, AnotacaoDTO>();
             CreateMap<AvaliacaoFisicaDTO, AvaliacaoFisicaEntidade>();
+            CreateMap<AvaliacaoFisicaEntidade, AvaliacaoFisicaDTO>();
         }
     }
 }

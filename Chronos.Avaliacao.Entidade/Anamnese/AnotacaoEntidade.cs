@@ -2,14 +2,14 @@
 
 namespace Chronos.Avaliacao.Entidade.Anamnese
 {
-    [Table("anotacoes")]
+    [Table("notas")]
     public class AnotacaoEntidade
     {
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("idcliente")]
-        public int IdCliente { get; set; }
+        [Column("idavaliacao")]
+        public int IdAvaliacao { get; set; }
 
         [Column("datanota")]
         public DateTime? DataNota { get; set; }
