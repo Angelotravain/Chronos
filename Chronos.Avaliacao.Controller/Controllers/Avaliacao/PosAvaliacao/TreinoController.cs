@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chronos.Avaliacao.Controller.Controllers.PosAvaliacao
+namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -58,31 +58,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.PosAvaliacao
             }
 
             existente.Descricao = treinoAtualizado.Descricao;
-
-            return NoContent();
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult PartialUpdateTreino(int id, [FromBody] Dictionary<string, object> campos)
-        {
-            if (campos == null)
-            {
-                return BadRequest();
-            }
-
-            var existente = _treinos.FirstOrDefault(t => t.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            foreach (var campo in campos)
-            {
-                if (campo.Key.Equals("Descricao", StringComparison.OrdinalIgnoreCase))
-                {
-                    existente.Descricao = campo.Value.ToString();
-                }
-            }
 
             return NoContent();
         }

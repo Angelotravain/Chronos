@@ -62,31 +62,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Financeiro
             return NoContent();
         }
 
-        [HttpPatch("{id}")]
-        public IActionResult PartialUpdatePagamento(int id, [FromBody] Dictionary<string, object> campos)
-        {
-            if (campos == null)
-            {
-                return BadRequest();
-            }
-
-            var existente = _pagamentos.FirstOrDefault(p => p.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            foreach (var campo in campos)
-            {
-                if (campo.Key.Equals("Valor", StringComparison.OrdinalIgnoreCase))
-                {
-                    existente.Valor = Convert.ToDecimal(campo.Value);
-                }
-            }
-
-            return NoContent();
-        }
-
         [HttpDelete("{id}")]
         public IActionResult DeletePagamento(int id)
         {

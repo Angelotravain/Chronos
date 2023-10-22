@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 
-namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
+namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
 {
     [Route("api/[controller]")]
     [ApiController]

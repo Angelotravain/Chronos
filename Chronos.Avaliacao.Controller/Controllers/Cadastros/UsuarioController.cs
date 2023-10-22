@@ -62,31 +62,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
             return NoContent();
         }
 
-        [HttpPatch("{id}")]
-        public IActionResult PartialUpdateUsuario(int id, [FromBody] Dictionary<string, object> campos)
-        {
-            if (campos == null)
-            {
-                return BadRequest();
-            }
-
-            var existente = _usuarios.FirstOrDefault(u => u.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            foreach (var campo in campos)
-            {
-                if (campo.Key.Equals("Nome", StringComparison.OrdinalIgnoreCase))
-                {
-                    existente.Nome = campo.Value.ToString();
-                }
-            }
-
-            return NoContent();
-        }
-
         [HttpDelete("{id}")]
         public IActionResult DeleteUsuario(int id)
         {

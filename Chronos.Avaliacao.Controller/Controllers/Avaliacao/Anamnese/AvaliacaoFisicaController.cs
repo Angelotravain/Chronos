@@ -4,7 +4,7 @@ using Chronos.Avaliacao.Entidade.Anamnese;
 using Chronos.Avaliacao.Negocio.Interface.Anamnese;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chronos.Avaliacao.Controller.Controllers.Anamnese
+namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
 {
     [Route("api/[controller]")]
     [ApiController]

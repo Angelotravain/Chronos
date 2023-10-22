@@ -4,7 +4,7 @@ using Chronos.Avaliacao.Entidade.Agendamentos;
 using Chronos.Avaliacao.Negocio.Interface.Agendamentos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chronos.Avaliacao.Controller.Controllers.Agendamentos
+namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
 {
     [Route("api/[controller]")]
     [ApiController]

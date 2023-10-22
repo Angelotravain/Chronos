@@ -46,7 +46,7 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
             var avaliacaoFisica = _context.AvaliacoesFisicas.FirstOrDefault(a => a.IdCliente == id);
             if (avaliacaoFisica == null)
             {
-                clienteSaida = _context.Clientes.FirstOrDefault(c => c.Id == id);
+                clienteSaida = _context.Clientes.First(c => c.Id == id);
 
             }
             return clienteSaida;
@@ -57,7 +57,7 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
         }
         public ClienteEntidade RetornaClientePorIdParaAvaliacao(int idCliente)
         {
-            return _context.Clientes.FirstOrDefault(c => c.Id == idCliente);
+            return _context.Clientes.First(c => c.Id == idCliente);
         }
     }
 }

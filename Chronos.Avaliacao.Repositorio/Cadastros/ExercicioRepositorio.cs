@@ -42,7 +42,7 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
         }
         public ExercicioEntidade BuscaExercicioPorId(int id)
         {
-            return _context.Exercicios.FirstOrDefault(e => e.Id == id);
+            return _context.Exercicios.First(e => e.Id == id);
         }
     }
 }
