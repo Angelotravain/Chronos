@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Cadastros;
+using Chronos.Avaliacao.Entidade.Cadastros;
+using Chronos.Avaliacao.Negocio.Interface.Cadastros;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 {
@@ -9,78 +10,66 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
     [ApiController]
     public class ClienteController : ControllerBase
     {
-        private readonly List<Cliente> _clientes = new List<Cliente>();
-        private int _nextId = 1;
+        private readonly IClienteNegocio _clienteNegocio;
+        private readonly IMapper _mapper;
+        public ClienteController(IClienteNegocio clienteNegocio, IMapper mapper)
+        {
+            _clienteNegocio = clienteNegocio;
+            _mapper = mapper;
+        }
 
         [HttpGet]
-        public IActionResult GetAllClientes()
+        public IActionResult BuscarTodosOsClientes()
         {
-            return Ok(_clientes);
+            return Ok(_clienteNegocio.BuscarTodosOsCLientes());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetClienteById(int id)
+        public IActionResult BuscarClientePorId(int id)
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            var cliente = _clienteNegocio.BuscaClientePorId(id);
             if (cliente == null)
-            {
                 return NotFound();
-            }
+
             return Ok(cliente);
         }
 
         [HttpPost]
-        public IActionResult CreateCliente([FromBody] Cliente novoCliente)
+        public IActionResult CreateCliente([FromBody] ClienteDTO novoCliente)
         {
             if (novoCliente == null)
-            {
                 return BadRequest();
-            }
 
-            novoCliente.Id = _nextId++;
-            _clientes.Add(novoCliente);
+            _clienteNegocio.SalvarCliente(_mapper.Map<ClienteDTO, ClienteEntidade>(novoCliente));
 
-            return CreatedAtAction(nameof(GetClienteById), new { id = novoCliente.Id }, novoCliente);
+            return CreatedAtAction(nameof(BuscarClientePorId), new { id = novoCliente.Id }, novoCliente);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateCliente(int id, [FromBody] Cliente clienteAtualizado)
+        public IActionResult EditarCliente(int id, [FromBody] ClienteDTO clienteAtualizado)
         {
             if (clienteAtualizado == null || id != clienteAtualizado.Id)
-            {
                 return BadRequest();
-            }
 
-            var existente = _clientes.FirstOrDefault(c => c.Id == id);
+            var existente = _clienteNegocio.BuscaClientePorId(id);
             if (existente == null)
-            {
                 return NotFound();
-            }
 
-            existente.Nome = clienteAtualizado.Nome;
+            _clienteNegocio.EditarCliente(_mapper.Map<ClienteDTO, ClienteEntidade>(clienteAtualizado));
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteCliente(int id)
+        public IActionResult ExcluirCliente(int id)
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            var cliente = _clienteNegocio.BuscaClientePorId(id);
             if (cliente == null)
-            {
                 return NotFound();
-            }
 
-            _clientes.Remove(cliente);
+            _clienteNegocio.ExcluirCliente(cliente.Id);
 
             return NoContent();
         }
-    }
-
-    public class Cliente
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        // Outros campos do cliente
     }
 }

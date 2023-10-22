@@ -59,5 +59,9 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
         {
             return _context.Clientes.First(c => c.Id == idCliente);
         }
+        public IEnumerable<ClienteEntidade> BuscarTodosOsCLientes()
+        {
+            return _context.Clientes.ToList();
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace Chronos.Avaliacao.Repositorio.Inteface.Cadastros
         ClienteEntidade BuscaClientePorId(int id);
         ClienteEntidade RetornarClienteParaAtualizarPorId(int id);
         ClienteEntidade RetornaClientePorIdParaAvaliacao(int idCliente);
+        IEnumerable<ClienteEntidade> BuscarTodosOsCLientes();
     }
 }
