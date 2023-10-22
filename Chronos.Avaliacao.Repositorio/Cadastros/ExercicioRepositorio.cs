@@ -15,18 +15,18 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
             _context = context;
             _generico = generico;
         }
-        public void SalvarExercicio(ExercicioEntidade cliente)
+        public void SalvarExercicio(ExercicioEntidade exercicio)
         {
-            if (cliente != null)
-                _generico.Salvar<ExercicioEntidade>(cliente);
+            if (exercicio != null)
+                _generico.Salvar<ExercicioEntidade>(exercicio);
         }
-        public bool ExcluirExercicio(int cliente)
+        public bool ExcluirExercicio(int exercicioId)
         {
             var podeExcluir = false;
-            var clienteVinculado = _context.AvaliacoesFisicas.FirstOrDefault(c => c.IdCliente == cliente);
+            var clienteVinculado = _context.AvaliacoesFisicas.FirstOrDefault(c => c.IdCliente == exercicioId);
             if (clienteVinculado == null)
             {
-                _generico.Excluir<ExercicioEntidade>(cliente);
+                _generico.Excluir<ExercicioEntidade>(exercicioId);
                 podeExcluir = true;
             }
             return podeExcluir;
