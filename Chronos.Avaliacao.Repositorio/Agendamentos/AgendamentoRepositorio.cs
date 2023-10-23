@@ -48,6 +48,7 @@ namespace Chronos.Avaliacao.Repositorio.Agendamentos
         {
             var agendamento = _context.Agendamentos.FirstOrDefault(a => a.Id == id);
             var boleano = false;
+
             if (agendamento == null)
                 boleano = true;
 

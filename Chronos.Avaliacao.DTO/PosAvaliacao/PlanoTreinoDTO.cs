@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Chronos.Avaliacao.DTO.PosAvaliacao
+﻿namespace Chronos.Avaliacao.DTO.PosAvaliacao
 {
     public class PlanoTreinoDTO
     {

@@ -23,9 +23,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         {
             var treino = _treinoNegocio.BuscarTreinoPorIdCliente(idCliente);
             if (treino == null)
-            {
                 return NotFound();
-            }
+
             return Ok(treino);
         }
 
@@ -33,9 +32,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         public IActionResult SalvarTreino([FromBody] TreinoDTO novoTreino)
         {
             if (novoTreino == null)
-            {
                 return BadRequest();
-            }
 
             _treinoNegocio.SalvarTreino(_mapper.Map<TreinoDTO, TreinoEntidade>(novoTreino));
 
@@ -46,15 +43,11 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         public IActionResult EditarTreino(int id, [FromBody] TreinoDTO treinoAtualizado)
         {
             if (treinoAtualizado == null || id != treinoAtualizado.Id)
-            {
                 return BadRequest();
-            }
 
             var existente = _treinoNegocio.BuscarTreinosPorId(id);
             if (existente == null)
-            {
                 return NotFound();
-            }
 
             _treinoNegocio.EditarTreino(_mapper.Map<TreinoDTO, TreinoEntidade>(treinoAtualizado));
 

@@ -1,6 +1,4 @@
-﻿using Chronos.Avaliacao.Entidade.Cadastros;
-using System.ComponentModel.DataAnnotations.Schema;
-
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Chronos.Avaliacao.Entidade.PosAvaliacao
 {

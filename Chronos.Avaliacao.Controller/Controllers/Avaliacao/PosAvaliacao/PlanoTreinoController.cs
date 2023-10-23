@@ -3,9 +3,6 @@ using Chronos.Avaliacao.DTO.PosAvaliacao;
 using Chronos.Avaliacao.Entidade.PosAvaliacao;
 using Chronos.Avaliacao.Negocio.Interface.PosAvaliacao;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
 {
@@ -26,9 +23,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         {
             var planoTreino = _planoTreinoNegocio.BuscarTodosPlanosDeTreinoPorAluno(idCliente);
             if (planoTreino == null)
-            {
                 return NotFound();
-            }
+
             return Ok(planoTreino);
         }
 
@@ -36,9 +32,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         public IActionResult CreatePlanoTreino([FromBody] PlanoTreinoDTO novoPlanoTreino)
         {
             if (novoPlanoTreino == null)
-            {
                 return BadRequest();
-            }
 
             _planoTreinoNegocio.SalvarPlanoTreino(_mapper.Map<PlanoTreinoDTO, PlanoTreinoEntidade>(novoPlanoTreino));
 
@@ -49,15 +43,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         public IActionResult EditarPlanoTreino(int id, [FromBody] PlanoTreinoDTO planoTreinoAtualizado)
         {
             if (planoTreinoAtualizado == null || id != planoTreinoAtualizado.Id)
-            {
                 return BadRequest();
-            }
+
             planoTreinoAtualizado.Id = id;
             var existente = _planoTreinoNegocio.EditarPlanoTreino(_mapper.Map<PlanoTreinoDTO, PlanoTreinoEntidade>(planoTreinoAtualizado));
             if (existente != true)
-            {
                 return NotFound();
-            }
 
             return NoContent();
         }

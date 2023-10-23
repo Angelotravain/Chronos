@@ -30,9 +30,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         {
             var agendamento = _negocio.ListarHistoricoAgendamentoCliente(idCliente);
             if (agendamento == null)
-            {
                 return NotFound();
-            }
+
             return Ok(agendamento);
         }
 
@@ -40,9 +39,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         public IActionResult CriarAgendamento([FromBody] AgendamentoDTO novoAgendamento)
         {
             if (novoAgendamento == null)
-            {
                 return BadRequest();
-            }
+
             return Ok(_negocio.SalvarAgendamento(_mapper.Map<AgendamentoEntidade>(novoAgendamento)));
         }
 
@@ -50,15 +48,12 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         public IActionResult EditarAgendamento(int id, [FromBody] AgendamentoDTO agendamentoAtualizado)
         {
             if (agendamentoAtualizado == null)
-            {
                 return BadRequest();
-            }
+
             agendamentoAtualizado.Id = id;
             var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(agendamentoAtualizado));
             if (existente == null)
-            {
                 return NotFound();
-            }
 
             return Ok(existente);
         }
@@ -68,9 +63,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         {
 
             if (id == null)
-            {
                 return NotFound();
-            }
 
             return Ok(_negocio.ExcluirAgendamento((int)id));
         }

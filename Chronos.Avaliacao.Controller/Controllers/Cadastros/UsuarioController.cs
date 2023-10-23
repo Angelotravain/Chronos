@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Cadastros;
+using Chronos.Avaliacao.Entidade.Cadastros;
+using Chronos.Avaliacao.Negocio.Interface.Cadastros;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 {
@@ -9,78 +10,75 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private readonly List<Usuario> _usuarios = new List<Usuario>();
-        private int _nextId = 1;
+        private readonly IUsuarioNegocio _usuarioNegocio;
+        private readonly IMapper _mapper;
+        public UsuarioController(IUsuarioNegocio ususarioNegocio, IMapper mapper)
+        {
+            _usuarioNegocio = ususarioNegocio;
+            _mapper = mapper;
+        }
 
         [HttpGet]
-        public IActionResult GetAllUsuarios()
+        public IActionResult BuscarTodosUsuarios()
         {
-            return Ok(_usuarios);
+            return Ok(_usuarioNegocio.BuscarTodosOsUsuarios());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetUsuarioById(int id)
+        public IActionResult BuscarUsuarioPorId(int id)
         {
-            var usuario = _usuarios.FirstOrDefault(u => u.Id == id);
+            var usuario = _usuarioNegocio.BuscarUsuarioPorId(id);
             if (usuario == null)
-            {
                 return NotFound();
-            }
+
+            return Ok(usuario);
+        }
+        [HttpGet("{nome}")]
+        public IActionResult BuscarUsuarioPorNome(string nome)
+        {
+            var usuario = _usuarioNegocio.BuscarUsuarioPorNome(nome);
+            if (usuario == null)
+                return NotFound();
+
             return Ok(usuario);
         }
 
         [HttpPost]
-        public IActionResult CreateUsuario([FromBody] Usuario novoUsuario)
+        public IActionResult SalvarUsuario([FromBody] UsuarioDTO novoUsuario)
         {
             if (novoUsuario == null)
-            {
                 return BadRequest();
-            }
 
-            novoUsuario.Id = _nextId++;
-            _usuarios.Add(novoUsuario);
+            _usuarioNegocio.SalvarUsuario(_mapper.Map<UsuarioDTO, UsuarioEntidade>(novoUsuario));
 
-            return CreatedAtAction(nameof(GetUsuarioById), new { id = novoUsuario.Id }, novoUsuario);
+            return CreatedAtAction(nameof(BuscarUsuarioPorId), new { id = novoUsuario.Id }, novoUsuario);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateUsuario(int id, [FromBody] Usuario usuarioAtualizado)
+        public IActionResult EditarUsuario(int id, [FromBody] UsuarioDTO usuarioAtualizado)
         {
             if (usuarioAtualizado == null || id != usuarioAtualizado.Id)
-            {
                 return BadRequest();
-            }
 
-            var existente = _usuarios.FirstOrDefault(u => u.Id == id);
+            var existente = _usuarioNegocio.BuscarUsuarioPorId(id);
             if (existente == null)
-            {
                 return NotFound();
-            }
 
-            existente.Nome = usuarioAtualizado.Nome;
+            _usuarioNegocio.EditarUsuario(_mapper.Map<UsuarioDTO, UsuarioEntidade>(usuarioAtualizado));
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteUsuario(int id)
+        public IActionResult ExcluirUsuario(int id)
         {
-            var usuario = _usuarios.FirstOrDefault(u => u.Id == id);
+            var usuario = _usuarioNegocio.BuscarUsuarioPorId(id);
             if (usuario == null)
-            {
                 return NotFound();
-            }
 
-            _usuarios.Remove(usuario);
+            _usuarioNegocio.ExcluirUsuario(id);
 
             return NoContent();
         }
-    }
-
-    public class Usuario
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        // Outros campos do usuário
     }
 }

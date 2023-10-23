@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Chronos.Avaliacao.DTO.Cadastros
+﻿namespace Chronos.Avaliacao.DTO.Cadastros
 {
     public class ClienteDTO
     {

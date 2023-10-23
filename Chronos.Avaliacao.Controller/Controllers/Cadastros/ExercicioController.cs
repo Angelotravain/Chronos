@@ -3,9 +3,6 @@ using Chronos.Avaliacao.DTO.Cadastros;
 using Chronos.Avaliacao.Entidade.Cadastros;
 using Chronos.Avaliacao.Negocio.Interface.Cadastros;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 {

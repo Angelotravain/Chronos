@@ -28,9 +28,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
         public IActionResult CreateAvaliacao([FromBody] AvaliacaoFisicaDTO novaAvaliacao)
         {
             if (novaAvaliacao == null)
-            {
                 return BadRequest();
-            }
+
             _avaliacaoFisicaNegocio.CriarAvaliacaoFisica(_mapper.Map<AvaliacaoFisicaEntidade>(novaAvaliacao));
 
             return Ok();

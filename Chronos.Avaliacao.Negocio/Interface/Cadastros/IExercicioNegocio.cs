@@ -1,5 +1,4 @@
 ﻿using Chronos.Avaliacao.Entidade.Cadastros;
-using Chronos.Avaliacao.Repositorio.Inteface.Cadastros;
 
 namespace Chronos.Avaliacao.Negocio.Interface.Cadastros
 {

@@ -1,9 +1,7 @@
-﻿using Chronos.Avaliacao.DTO.PosAvaliacao;
-using Chronos.Avaliacao.Entidade.PosAvaliacao;
+﻿using Chronos.Avaliacao.Entidade.PosAvaliacao;
 using Chronos.Avaliacao.Negocio.Interface.PosAvaliacao;
 using Chronos.Avaliacao.Repositorio.Inteface.Generico;
 using Chronos.Avaliacao.Repositorio.Inteface.PosAvaliacao;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Negocio.PosAvaliacao
 {

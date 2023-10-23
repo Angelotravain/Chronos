@@ -23,9 +23,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         {
             var mensagem = _negocio.GetRepositorio().BuscarMensagemPorAgendamento(idCliente, idAgendamento);
             if (mensagem == null)
-            {
                 return NotFound();
-            }
+
             return Ok(mensagem);
         }
 
@@ -33,9 +32,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         public IActionResult CriarMensagem([FromBody] MensagemDTO novaMensagem)
         {
             if (novaMensagem == null)
-            {
                 return BadRequest();
-            }
 
             _negocio.GetRepositorio().SalvarMensagem(_mapper.Map<MensagemEntidade>(novaMensagem));
 
@@ -46,9 +43,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         public IActionResult EditarMensagem(int id, [FromBody] MensagemDTO mensagemAtualizada)
         {
             if (mensagemAtualizada == null || id != mensagemAtualizada.Id)
-            {
                 return BadRequest();
-            }
 
             _negocio.GetRepositorio().EditarMensagem(_mapper.Map<MensagemEntidade>(mensagemAtualizada));
 
@@ -59,9 +54,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
         public IActionResult ExcluirMensagem(int id)
         {
             if (id == 0)
-            {
                 return NotFound();
-            }
+
             _negocio.GetRepositorio().RemoverMensagem(id);
             return NoContent();
         }

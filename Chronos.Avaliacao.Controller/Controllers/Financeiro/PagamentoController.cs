@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.Financeiro;
+using Chronos.Avaliacao.Entidade.Financeiro;
+using Chronos.Avaliacao.Negocio.Interface.Financeiro;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Financeiro
 {
@@ -9,78 +10,49 @@ namespace Chronos.Avaliacao.Controller.Controllers.Financeiro
     [ApiController]
     public class PagamentoController : ControllerBase
     {
-        private readonly List<Pagamento> _pagamentos = new List<Pagamento>();
-        private int _nextId = 1;
-
-        [HttpGet]
-        public IActionResult GetAllPagamentos()
+        private readonly IPagamentoNegocio _pagamentoNegocio;
+        private readonly IMapper _mapper;
+        public PagamentoController(IPagamentoNegocio pagamentoNegocio, IMapper mapper)
         {
-            return Ok(_pagamentos);
+            _pagamentoNegocio = pagamentoNegocio;
+            _mapper = mapper;
+        }
+        [HttpGet]
+        public IActionResult BuscarTodosPagamentos()
+        {
+            return Ok(_pagamentoNegocio.BuscarTodosOsPagamentos());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetPagamentoById(int id)
+        [HttpGet("{idCliente}")]
+        public IActionResult BuscarPagamentosPorIdCliente(int idCliente)
         {
-            var pagamento = _pagamentos.FirstOrDefault(p => p.Id == id);
+            var pagamento = _pagamentoNegocio.BuscarPagamentoPorIdCliente(idCliente);
             if (pagamento == null)
-            {
                 return NotFound();
-            }
+
             return Ok(pagamento);
         }
 
         [HttpPost]
-        public IActionResult CreatePagamento([FromBody] Pagamento novoPagamento)
+        public IActionResult SalvarPagamento([FromBody] PagamentoDTO novoPagamento)
         {
             if (novoPagamento == null)
-            {
                 return BadRequest();
-            }
 
-            novoPagamento.Id = _nextId++;
-            _pagamentos.Add(novoPagamento);
+            _pagamentoNegocio.SalvarPagamento(_mapper.Map<PagamentoDTO, PagamentoEntidade>(novoPagamento));
 
-            return CreatedAtAction(nameof(GetPagamentoById), new { id = novoPagamento.Id }, novoPagamento);
+            return CreatedAtAction(nameof(BuscarPagamentosPorIdCliente), new { id = novoPagamento.IdCliente }, novoPagamento);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdatePagamento(int id, [FromBody] Pagamento pagamentoAtualizado)
+        public IActionResult EstornarPagamento(int id, [FromBody] PagamentoDTO pagamentoAtualizado)
         {
             if (pagamentoAtualizado == null || id != pagamentoAtualizado.Id)
-            {
                 return BadRequest();
-            }
 
-            var existente = _pagamentos.FirstOrDefault(p => p.Id == id);
-            if (existente == null)
-            {
-                return NotFound();
-            }
-
-            existente.Valor = pagamentoAtualizado.Valor;
+            _pagamentoNegocio.EstornarPagamento(_mapper.Map<PagamentoDTO, PagamentoEntidade>(pagamentoAtualizado));
 
             return NoContent();
         }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeletePagamento(int id)
-        {
-            var pagamento = _pagamentos.FirstOrDefault(p => p.Id == id);
-            if (pagamento == null)
-            {
-                return NotFound();
-            }
-
-            _pagamentos.Remove(pagamento);
-
-            return NoContent();
-        }
-    }
-
-    public class Pagamento
-    {
-        public int Id { get; set; }
-        public decimal Valor { get; set; }
-        // Outros campos do pagamento
     }
 }

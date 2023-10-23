@@ -24,9 +24,8 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
         {
             var anotacao = _anotacaoNegocio.GetRepositorio().BuscarAnotacaoPorAvaliacao(id);
             if (anotacao == null)
-            {
                 return NotFound();
-            }
+
             return Ok(anotacao);
         }
 
@@ -34,9 +33,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
         public IActionResult CriarAnotacao([FromBody] AnotacaoDTO novaAnotacao)
         {
             if (novaAnotacao == null)
-            {
                 return BadRequest();
-            }
 
             return CreatedAtAction(nameof(BuscarAnotacaoPorId), new { id = novaAnotacao.Id }, novaAnotacao);
         }
@@ -46,9 +43,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
         {
             var anotacao = _anotacaoNegocio.GetRepositorio().BuscarAnotacaoPorAvaliacao(idAvaliacao);
             if (anotacao == null)
-            {
                 return NotFound();
-            }
 
             _anotacaoNegocio.GetRepositorio().ExcluirAnotacao(anotacao.First().Id);
 

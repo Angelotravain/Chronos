@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Chronos.Avaliacao.DTO.Anamnese
+﻿namespace Chronos.Avaliacao.DTO.Anamnese
 {
     public class AnotacaoDTO
     {

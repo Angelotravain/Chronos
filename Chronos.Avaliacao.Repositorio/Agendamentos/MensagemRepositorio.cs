@@ -2,7 +2,6 @@
 using Chronos.Avaliacao.Entidade.Agendamentos;
 using Chronos.Avaliacao.Repositorio.Inteface.Agendamento;
 using Chronos.Avaliacao.Repositorio.Inteface.Generico;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Repositorio.Agendamentos
 {
