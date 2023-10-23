@@ -57,7 +57,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
             var existente = _exercicioNegocio.BuscaExercicioPorId(id);
             if (existente == null)
 
-                _exercicioNegocio.EditarExercicio(existente);
+                _exercicioNegocio.EditarExercicio(_mapper.Map<ExercicioDTO, ExercicioEntidade>(exercicioAtualizado));
 
             return NoContent();
         }

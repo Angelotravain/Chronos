@@ -24,11 +24,5 @@ namespace Chronos.Avaliacao.Entidade.PosAvaliacao
 
         [Column("progresso")]
         public string? Progresso { get; set; }
-
-        [ForeignKey("PlanoTreinoId")]
-        public PlanoTreinoEntidade? PlanoTreino { get; set; }
-
-        [ForeignKey("IdCliente")]
-        public ClienteEntidade? Cliente { get; set; }
     }
 }

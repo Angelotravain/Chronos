@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using Chronos.Avaliacao.DTO.PosAvaliacao;
+using Chronos.Avaliacao.Entidade.PosAvaliacao;
+using Chronos.Avaliacao.Negocio.Interface.PosAvaliacao;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
 {
@@ -9,19 +10,18 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
     [ApiController]
     public class TreinoController : ControllerBase
     {
-        private readonly List<Treino> _treinos = new List<Treino>();
-        private int _nextId = 1;
-
-        [HttpGet]
-        public IActionResult GetAllTreinos()
+        private readonly ITreinoNegocio _treinoNegocio;
+        private readonly IMapper _mapper;
+        public TreinoController(ITreinoNegocio treinoNegocio, IMapper mapper)
         {
-            return Ok(_treinos);
+            _treinoNegocio = treinoNegocio;
+            _mapper = mapper;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetTreinoById(int id)
+        [HttpGet("{idCliente}")]
+        public IActionResult BuscarTrinoPorIdCliente(int idCliente)
         {
-            var treino = _treinos.FirstOrDefault(t => t.Id == id);
+            var treino = _treinoNegocio.BuscarTreinoPorIdCliente(idCliente);
             if (treino == null)
             {
                 return NotFound();
@@ -30,57 +30,35 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         }
 
         [HttpPost]
-        public IActionResult CreateTreino([FromBody] Treino novoTreino)
+        public IActionResult SalvarTreino([FromBody] TreinoDTO novoTreino)
         {
             if (novoTreino == null)
             {
                 return BadRequest();
             }
 
-            novoTreino.Id = _nextId++;
-            _treinos.Add(novoTreino);
+            _treinoNegocio.SalvarTreino(_mapper.Map<TreinoDTO, TreinoEntidade>(novoTreino));
 
-            return CreatedAtAction(nameof(GetTreinoById), new { id = novoTreino.Id }, novoTreino);
+            return CreatedAtAction(nameof(_treinoNegocio.BuscarTreinosPorId), new { id = novoTreino.Id }, novoTreino);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateTreino(int id, [FromBody] Treino treinoAtualizado)
+        public IActionResult EditarTreino(int id, [FromBody] TreinoDTO treinoAtualizado)
         {
             if (treinoAtualizado == null || id != treinoAtualizado.Id)
             {
                 return BadRequest();
             }
 
-            var existente = _treinos.FirstOrDefault(t => t.Id == id);
+            var existente = _treinoNegocio.BuscarTreinosPorId(id);
             if (existente == null)
             {
                 return NotFound();
             }
 
-            existente.Descricao = treinoAtualizado.Descricao;
+            _treinoNegocio.EditarTreino(_mapper.Map<TreinoDTO, TreinoEntidade>(treinoAtualizado));
 
             return NoContent();
         }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteTreino(int id)
-        {
-            var treino = _treinos.FirstOrDefault(t => t.Id == id);
-            if (treino == null)
-            {
-                return NotFound();
-            }
-
-            _treinos.Remove(treino);
-
-            return NoContent();
-        }
-    }
-
-    public class Treino
-    {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
-        // Outros campos do treino
     }
 }
