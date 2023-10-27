@@ -44,11 +44,9 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
         {
             ClienteEntidade clienteSaida = null;
             var avaliacaoFisica = _context.AvaliacoesFisicas.FirstOrDefault(a => a.IdCliente == id);
-            if (avaliacaoFisica == null)
-            {
+
                 clienteSaida = _context.Clientes.First(c => c.Id == id);
 
-            }
             return clienteSaida;
         }
         public ClienteEntidade RetornarClienteParaAtualizarPorId(int id)

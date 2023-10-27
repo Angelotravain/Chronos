@@ -2,7 +2,7 @@
 
 namespace Chronos.Avaliacao.Entidade.Cadastros
 {
-    [Table("exercicios")]
+    [Table("exercicio")]
     public class ExercicioEntidade
     {
         [Column("id")]

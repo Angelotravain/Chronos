@@ -32,15 +32,6 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 
             return Ok(funcionario);
         }
-        [HttpGet("{nome}")]
-        public IActionResult BuscarFuncionarioPorNome(string nome)
-        {
-            var funcionario = _funcionarioNegocio.BuscarFuncionarioPeloNome(nome);
-            if (funcionario == null)
-                return NotFound();
-
-            return Ok(funcionario);
-        }
 
         [HttpPost]
         public IActionResult SalvarFuncionario([FromBody] FuncionarioDTO novoFuncionario)

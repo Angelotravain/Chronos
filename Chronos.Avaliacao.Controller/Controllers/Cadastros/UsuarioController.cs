@@ -3,6 +3,7 @@ using Chronos.Avaliacao.DTO.Cadastros;
 using Chronos.Avaliacao.Entidade.Cadastros;
 using Chronos.Avaliacao.Negocio.Interface.Cadastros;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 {
@@ -31,16 +32,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
             if (usuario == null)
                 return NotFound();
 
-            return Ok(usuario);
-        }
-        [HttpGet("{nome}")]
-        public IActionResult BuscarUsuarioPorNome(string nome)
-        {
-            var usuario = _usuarioNegocio.BuscarUsuarioPorNome(nome);
-            if (usuario == null)
-                return NotFound();
-
-            return Ok(usuario);
+            return Ok(usuario.First());
         }
 
         [HttpPost]

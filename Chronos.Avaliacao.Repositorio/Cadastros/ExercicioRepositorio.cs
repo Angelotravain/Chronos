@@ -23,7 +23,7 @@ namespace Chronos.Avaliacao.Repositorio.Cadastros
         public bool ExcluirExercicio(int exercicioId)
         {
             var podeExcluir = false;
-            var clienteVinculado = _context.AvaliacoesFisicas.FirstOrDefault(c => c.IdCliente == exercicioId);
+            var clienteVinculado = _context.PlanosDeTreino.FirstOrDefault(c => c.ExercicioId == exercicioId);
             if (clienteVinculado == null)
             {
                 _generico.Excluir<ExercicioEntidade>(exercicioId);
