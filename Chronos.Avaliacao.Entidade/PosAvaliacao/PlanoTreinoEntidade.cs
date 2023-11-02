@@ -11,16 +11,14 @@ namespace Chronos.Avaliacao.Entidade.PosAvaliacao
         [Column("exercicioid")]
         public int ExercicioId { get; set; }
 
-        [Column("clienteid")]
-        public int ClienteId { get; set; }
-
         [Column("series")]
         public int? Series { get; set; }
 
-        [Column("duracaoemminutos")]
-        public int? DuracaoEmMinutos { get; set; }
+        [Column("repeticoes")]
+        public int? Repeticoes { get; set; }
 
-        [Column("intervaloemsegundos")]
-        public int? IntervaloEmSegundos { get; set; }
+        [Column("nome_exercicio")]
+        public string? NomeExercicio { get; set; }
+
     }
 }

@@ -11,13 +11,10 @@ namespace Chronos.Avaliacao.Conexao
         public Contexto(DbContextOptions<Contexto> options) : base(options) { }
 
         public DbSet<AgendamentoEntidade> Agendamentos { get; set; }
-        public DbSet<AnotacaoEntidade> Anotacoes { get; set; }
         public DbSet<AvaliacaoFisicaEntidade> AvaliacoesFisicas { get; set; }
         public DbSet<ClienteEntidade> Clientes { get; set; }
         public DbSet<ExercicioEntidade> Exercicios { get; set; }
-        public DbSet<FuncionarioEntidade> Funcionarios { get; set; }
         public DbSet<PlanoTreinoEntidade> PlanosDeTreino { get; set; }
-        public DbSet<TreinoEntidade> Treinos { get; set; }
         public DbSet<UsuarioEntidade> Ususarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

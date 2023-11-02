@@ -13,7 +13,7 @@ namespace Chronos.Avaliacao.Repositorio.PosAvaliacao
         }
         public IEnumerable<PlanoTreinoEntidade> BuscarPlanoTreinoPorIdCliente(int idCliente)
         {
-            return _context.PlanosDeTreino.Where(pl => pl.ClienteId == idCliente).ToList();
+            return _context.PlanosDeTreino.Where(pl => pl.Id == idCliente).ToList();
         }
     }
 }

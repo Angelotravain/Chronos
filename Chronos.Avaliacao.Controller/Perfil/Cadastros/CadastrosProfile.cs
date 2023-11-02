@@ -10,7 +10,6 @@ namespace Chronos.Avaliacao.Controller.Perfil.Cadastros
         {
             CreateMap<ClienteDTO, ClienteEntidade>();
             CreateMap<ExercicioDTO, ExercicioEntidade>();
-            CreateMap<FuncionarioDTO, FuncionarioEntidade>();
             CreateMap<UsuarioDTO, UsuarioEntidade>();
         }
     }

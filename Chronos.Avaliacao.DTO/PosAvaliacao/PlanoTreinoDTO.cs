@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
         public int ExercicioId { get; set; }
-        public int ClienteId { get; set; }
         public int? Series { get; set; }
-        public int? DuracaoEmMinutos { get; set; }
-        public int? IntervaloEmSegundos { get; set; }
+        public int? Repeticoes { get; set; }
+        public string? NomeExercicio { get; set; }
+
     }
 }

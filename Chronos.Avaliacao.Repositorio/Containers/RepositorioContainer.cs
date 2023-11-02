@@ -20,15 +20,12 @@ namespace Chronos.Avaliacao.Repositorio.Containers
 
             #region Injeção Repositório
             services.AddTransient<IAgendamentoRepositorio, AgendamentoRepositorio>();
-            services.AddTransient<IAnotacaoRepositorio, AnotacaoRepositorio>();
             services.AddTransient<IAvaliacaoFisicaRepositorio, AvaliacaoFisicaRepositorio>();
             services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
             services.AddTransient<IExercicioRepositorio, ExercicioRepositorio>();
-            services.AddTransient<IFuncionarioRepositorio, FuncionarioRepositorio>();
             services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddTransient<IGenerico, GenericoRepositorio>();
             services.AddTransient<IPlanoTreinoRepositorio, PlanoTreinoRepositorio>();
-            services.AddTransient<ITreinoRepositorio, TreinoRepositorio>();
 
             #endregion
 
