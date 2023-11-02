@@ -47,9 +47,9 @@ namespace Chronos.Avaliacao.Negocio.Agendamentos
         {
             return _repositorio.ListarTodosOsAgendamentos();
         }
-        public IEnumerable<AgendamentoEntidade> ListarHistoricoAgendamentoCliente(int idCliente)
+        public AgendamentoEntidade ListarHistoricoAgendamentoCliente(int id)
         {
-            return _repositorio.ListarHistoricoAgendamentoCliente(idCliente);
+            return _repositorio.ListarHistoricoAgendamentoCliente(id);
         }
         public IEnumerable<AgendamentoEntidade> ListarAgendamentosEmAbertoPorCliente(int idCliente)
         {

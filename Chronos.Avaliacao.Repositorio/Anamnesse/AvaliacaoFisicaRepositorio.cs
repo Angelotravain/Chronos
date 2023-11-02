@@ -29,5 +29,9 @@ namespace Chronos.Avaliacao.Repositorio.Anamnesse
         {
             _generico.Salvar<AvaliacaoFisicaEntidade>(avaliacao);
         }
+        public AvaliacaoFisicaEntidade RetornarUltimaAvaliacaoInseridaporCliente(int idCliente)
+        {
+            return _context.AvaliacoesFisicas.Where(a => a.IdCliente == idCliente).OrderByDescending(a => a.Id).First();
+        }
     }
 }

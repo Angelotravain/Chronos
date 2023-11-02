@@ -25,10 +25,10 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
             return _mapper.Map<IEnumerable<AgendamentoDTO>>(_negocio.ListarTodosOsAgendamentos());
         }
 
-        [HttpGet("{idCliente}")]
-        public IActionResult BuscarAgendamentoPorId(int idCliente)
+        [HttpGet("{Id}")]
+        public IActionResult BuscarAgendamentoPorId(int id)
         {
-            var agendamento = _negocio.ListarHistoricoAgendamentoCliente(idCliente);
+            var agendamento = _negocio.ListarHistoricoAgendamentoCliente(id);
             if (agendamento == null)
                 return NotFound();
 
@@ -51,7 +51,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Agendamentos
                 return BadRequest();
 
             agendamentoAtualizado.Id = id;
-            var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoEntidade>(agendamentoAtualizado));
+            var existente = _negocio.EditarAgendamento(_mapper.Map<AgendamentoDTO, AgendamentoEntidade>(agendamentoAtualizado));
             if (existente == null)
                 return NotFound();
 

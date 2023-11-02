@@ -10,7 +10,6 @@ namespace Chronos.Avaliacao.Controller.Perfil.Agendamentos
         {
             CreateMap<AgendamentoDTO, AgendamentoEntidade>();
             CreateMap<AgendamentoEntidade, AgendamentoDTO>();
-            CreateMap<MensagemDTO, MensagemEntidade>();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Chronos.Avaliacao.Entidade.Agendamentos;
 using Chronos.Avaliacao.Entidade.Anamnese;
 using Chronos.Avaliacao.Entidade.Cadastros;
-using Chronos.Avaliacao.Entidade.Financeiro;
 using Chronos.Avaliacao.Entidade.PosAvaliacao;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +16,6 @@ namespace Chronos.Avaliacao.Conexao
         public DbSet<ClienteEntidade> Clientes { get; set; }
         public DbSet<ExercicioEntidade> Exercicios { get; set; }
         public DbSet<FuncionarioEntidade> Funcionarios { get; set; }
-        public DbSet<MensagemEntidade> Mensagens { get; set; }
-        public DbSet<PagamentoEntidade> Pagamentos { get; set; }
         public DbSet<PlanoTreinoEntidade> PlanosDeTreino { get; set; }
         public DbSet<TreinoEntidade> Treinos { get; set; }
         public DbSet<UsuarioEntidade> Ususarios { get; set; }

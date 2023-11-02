@@ -40,9 +40,9 @@ namespace Chronos.Avaliacao.Repositorio.Agendamentos
         {
             return _context.Agendamentos.Where(c => c.IdCliente == idCliente && c.StatusDoAgendamento.Equals("Em Aberto")).ToList();
         }
-        public IEnumerable<AgendamentoEntidade> ListarHistoricoAgendamentoCliente(int idCliente)
+        public AgendamentoEntidade ListarHistoricoAgendamentoCliente(int id)
         {
-            return _context.Agendamentos.Where(c => c.IdCliente == idCliente).ToList();
+            return _context.Agendamentos.Where(c => c.Id == id).First();
         }
         public bool BuscarAgendamentoPorId(int id)
         {

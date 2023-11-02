@@ -31,8 +31,9 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.Anamnese
                 return BadRequest();
 
             _avaliacaoFisicaNegocio.CriarAvaliacaoFisica(_mapper.Map<AvaliacaoFisicaEntidade>(novaAvaliacao));
+            var avaliacao = BuscarAvaliacaoPorIdCliente(novaAvaliacao.IdCliente);
 
-            return Ok();
+            return CreatedAtAction(nameof(BuscarAvaliacaoPorIdCliente), new { idCliente = avaliacao.IdCliente }, avaliacao);
         }
     }
 }

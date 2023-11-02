@@ -17,6 +17,9 @@ namespace Chronos.Avaliacao.Entidade.Agendamentos
 
         [Column("statusdoagendamento")]
         public string? StatusDoAgendamento { get; set; }
-
+        [Column("horaagendamento")]
+        public string? HoraAgendamento { get; set; }
+        [Column("mensagem")]
+        public string? MensagemAgendamento { get; set; }
     }
 }
