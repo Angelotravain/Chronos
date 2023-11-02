@@ -9,7 +9,6 @@ namespace Chronos.Avaliacao.Controller.Perfil.PosAvaliacao
         public PosAvaliacaoProfile()
         {
             CreateMap<PlanoTreinoDTO, PlanoTreinoEntidade>();
-            CreateMap<TreinoDTO, TreinoEntidade>();
         }
     }
 }
