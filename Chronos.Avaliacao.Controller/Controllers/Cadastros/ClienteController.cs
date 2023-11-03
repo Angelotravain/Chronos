@@ -35,7 +35,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
         }
 
         [HttpPost]
-        public IActionResult CreateCliente([FromBody] ClienteDTO novoCliente)
+        public IActionResult SalvarCliente([FromBody] ClienteDTO novoCliente)
         {
             if (novoCliente == null)
                 return BadRequest();

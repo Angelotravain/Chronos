@@ -6,11 +6,18 @@ namespace Chronos.Avaliacao.Avaliacao.Principal
 {
     public partial class Principal : Form
     {
+        private string NivelAcesso { get; set; }
+
         public Principal()
         {
             InitializeComponent();
             login frm = new login();
             frm.ShowDialog();
+            NivelAcesso = frm.NivelAcesso;
+            if (this.NivelAcesso == "Avaliador")
+            {
+                cadastrosToolStripMenuItem.Visible = false;
+            }
         }
 
         private void sairToolStripMenuItem_DoubleClick(object sender, EventArgs e)
@@ -92,6 +99,11 @@ namespace Chronos.Avaliacao.Avaliacao.Principal
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AbrirFormNoPanel<frmRelatorioCliente>();
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

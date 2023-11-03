@@ -2,16 +2,19 @@
 using Chronos.Avaliacao.DTO.Cadastros;
 using Chronos.Avaliacao.DTO.PosAvaliacao;
 using Chronos.Genericos;
+using Chronos.Genericos.Cadastros.Mapeamento;
+using Chronos.Genericos.Crud;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Data;
 
 namespace Chronos.Avaliacao.Avaliacao.Processos
 {
     public partial class frmPlanoDeTreino : Form
     {
-        private readonly AjustarComponentes _ajustarComponentes = new();
-        private readonly relPlanoDeTreino _relPlanotreino = new relPlanoDeTreino();
+        private readonly relPlanoDeTreino _relPlanotreino = new();
+        private readonly MapperarPlanoDeTreinoDto _mappear = new();
+        private readonly MetodosComuns _comuns = new();
+        private readonly CrudGenerico _crud = new();
         private List<PlanoTreinoDTO> _listaPlanoTreino { get; set; }
         private int IdExercicioSelecionado { get; set; }
         public frmPlanoDeTreino()
@@ -27,9 +30,9 @@ namespace Chronos.Avaliacao.Avaliacao.Processos
             Dispose();
         }
 
-        private void frmPlanoDeTreino_Load(object sender, EventArgs e)
+        private async void frmPlanoDeTreino_Load(object sender, EventArgs e)
         {
-
+            _comuns.PreencherComboBoxAleatorio(cbmCliente, await _comuns.ListarDados<ClienteDTO>(URL.UrlCliente()), "Nome", "Id");
         }
         private async void ListarExercicios()
         {
@@ -127,18 +130,33 @@ namespace Chronos.Avaliacao.Avaliacao.Processos
 
         private void btnAdicionarExercicio_Click(object sender, EventArgs e)
         {
-            var planoTreinoEntrada = new PlanoTreinoDTO();
-            planoTreinoEntrada.ExercicioId = IdExercicioSelecionado;
-            planoTreinoEntrada.NomeExercicio = txtExercicio.Text;
-            planoTreinoEntrada.Repeticoes = (int)txtRepeticoes.Value;
-            planoTreinoEntrada.Series = (int)txtSeries.Value;
-            _listaPlanoTreino.Add(planoTreinoEntrada);
-            ListarPlanoTreino(_listaPlanoTreino);
+            if (txtExercicio.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Selecione um exercício primeiro para inserir na montagem do seu treino", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var planoTreinoEntrada = new PlanoTreinoDTO();
+                planoTreinoEntrada.ExercicioId = IdExercicioSelecionado;
+                planoTreinoEntrada.NomeExercicio = txtExercicio.Text;
+                planoTreinoEntrada.Repeticoes = (int)txtRepeticoes.Value;
+                planoTreinoEntrada.Series = (int)txtSeries.Value;
+                planoTreinoEntrada.IdCliente = (int)cbmCliente.SelectedValue;
+                _listaPlanoTreino.Add(planoTreinoEntrada);
+                ListarPlanoTreino(_listaPlanoTreino);
+                txtExercicio.Text = string.Empty;
+            }
         }
 
-        private void btnGerarAvaliacao_Click(object sender, EventArgs e)
+        private async void btnGerarAvaliacao_Click(object sender, EventArgs e)
         {
             _relPlanotreino.CriarRelatorioPlanoDeTreino(_listaPlanoTreino);
+            var buscarIdDoTreino = await _mappear.BuscaIdDoTreinoAtual((int)cbmCliente.SelectedValue);
+            foreach (var lista in _listaPlanoTreino)
+            {
+                lista.IdDoTreino = buscarIdDoTreino;
+                _crud.Salvar(URL.UrlPlanoTreinoPost(), JsonConvert.SerializeObject(lista));
+            }
         }
 
         private void gridExercicios_CellContentClick(object sender, DataGridViewCellEventArgs e)

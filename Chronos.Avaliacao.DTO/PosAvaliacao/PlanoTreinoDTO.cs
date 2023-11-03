@@ -7,6 +7,8 @@
         public int? Series { get; set; }
         public int? Repeticoes { get; set; }
         public string? NomeExercicio { get; set; }
+        public int IdCliente { get; set; }
+        public int IdDoTreino { get; set; }
 
     }
 }

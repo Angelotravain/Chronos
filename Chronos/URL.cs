@@ -14,6 +14,8 @@ namespace Chronos
         public static string UrlUsuario() { return "https://localhost:5001/api/Usuario"; }
         public static string UrlAgendamento() { return "https://localhost:5001/api/Agendamento"; }
         public static string UrlAvaliacao() { return "https://localhost:5001/api/AvaliacaoFisica"; }
+        public static string UrlPlanoTreino(int idCliente) { return $"https://localhost:5001/api/PlanoTreino/{idCliente}"; }
+        public static string UrlPlanoTreinoPost() { return $"https://localhost:5001/api/PlanoTreino"; }
 
     }
 }

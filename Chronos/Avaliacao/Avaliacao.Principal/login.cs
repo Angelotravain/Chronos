@@ -15,6 +15,7 @@ namespace Chronos.Avaliacao.Avaliacao.Principal
 {
     public partial class login : Form
     {
+        public string NivelAcesso { get; set; }
         private readonly MetodosComuns _metodosComuns = new();
         public login()
         {
@@ -43,7 +44,10 @@ namespace Chronos.Avaliacao.Avaliacao.Principal
                         foreach (var usuario in usuarioRecuperados)
                         {
                             if (senhaCripto == usuario.Senha && login == usuario.NomeUsuario)
+                            {
+                                NivelAcesso = usuario.NivelAcesso;
                                 logar = true;
+                            }
                         }
                         if (logar)
                             this.Dispose();

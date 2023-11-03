@@ -35,7 +35,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
         }
 
         [HttpPost]
-        public IActionResult CreateExercicio([FromBody] ExercicioDTO novoExercicio)
+        public IActionResult SalvarExercicio([FromBody] ExercicioDTO novoExercicio)
         {
             if (novoExercicio == null)
                 return BadRequest();
@@ -46,7 +46,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateExercicio(int id, [FromBody] ExercicioDTO exercicioAtualizado)
+        public IActionResult EditarExercicio(int id, [FromBody] ExercicioDTO exercicioAtualizado)
         {
             if (exercicioAtualizado == null || id != exercicioAtualizado.Id)
                 return BadRequest();
@@ -61,7 +61,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Cadastros
 
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteExercicio(int id)
+        public IActionResult ExcluirExercicio(int id)
         {
             var exercicio = _exercicioNegocio.BuscaExercicioPorId(id);
             if (exercicio == null)

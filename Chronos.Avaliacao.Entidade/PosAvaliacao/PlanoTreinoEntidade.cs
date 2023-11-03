@@ -19,6 +19,11 @@ namespace Chronos.Avaliacao.Entidade.PosAvaliacao
 
         [Column("nome_exercicio")]
         public string? NomeExercicio { get; set; }
+        [Column("idcliente")]
+        public int IdCliente { get; set; }
+
+        [Column("iddotreino")]
+        public int IdDoTreino { get; set; }
 
     }
 }

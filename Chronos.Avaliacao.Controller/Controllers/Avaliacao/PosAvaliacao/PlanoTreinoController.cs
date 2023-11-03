@@ -29,7 +29,7 @@ namespace Chronos.Avaliacao.Controller.Controllers.Avaliacao.PosAvaliacao
         }
 
         [HttpPost]
-        public IActionResult CreatePlanoTreino([FromBody] PlanoTreinoDTO novoPlanoTreino)
+        public IActionResult SalvarPlanoTreino([FromBody] PlanoTreinoDTO novoPlanoTreino)
         {
             if (novoPlanoTreino == null)
                 return BadRequest();
