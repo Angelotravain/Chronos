@@ -24,6 +24,23 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
         private void frmUsuario_Load(object sender, EventArgs e)
         {
             ListarUsuarios();
+            AtualizarComandos("Novo");
+        }
+        private void AtualizarComandos(string comando)
+        {
+            switch (comando)
+            {
+                case "Editar":
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnExcluir.Enabled = true;
+                    break;
+                case "Novo":
+                    btnSalvar.Enabled = true;
+                    btnEditar.Enabled = false;
+                    btnExcluir.Enabled = false;
+                    break;
+            }
         }
 
         private async void btnSalvar_Click(object sender, EventArgs e)
@@ -32,6 +49,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             await _crudGenerico.Salvar(apiUrl, jsonSalvar);
             ListarUsuarios();
             LimparCampos();
+            AtualizarComandos("Novo");
         }
 
         private async void btnEditar_Click(object sender, EventArgs e)
@@ -45,6 +63,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             MessageBox.Show("Usuario editado com sucesso", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ListarUsuarios();
             LimparCampos();
+            AtualizarComandos("Novo");
         }
 
         private async void btnExcluir_Click(object sender, EventArgs e)
@@ -53,6 +72,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             MessageBox.Show("Usuário excluído com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ListarUsuarios();
             LimparCampos();
+            AtualizarComandos("Novo");
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -94,6 +114,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                     MessageBox.Show("Erro ao acessar a API: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            AtualizarComandos("Editar");
         }
 
         private void PreencherCamposComUsuario(UsuarioDTO? usuarioRecuperado)

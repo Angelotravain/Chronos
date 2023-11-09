@@ -79,5 +79,13 @@ namespace Chronos.Avaliacao.Avaliacao.Principal
                 }
             }
         }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ListarUsuarios(txtLogin.Text, txtSenha.Text);
+            }
+        }
     }
 }

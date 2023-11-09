@@ -25,12 +25,28 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             _ajustarComponentes.ajustarGrid(gridExercicio);
             ListarExercicios();
             IdExercicioSelecionado = string.Empty;
+            AtualizarComandos("Novo");
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
             Dispose();
         }
-
+        private void AtualizarComandos(string comando)
+        {
+            switch (comando)
+            {
+                case "Editar":
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnExcluir.Enabled = true;
+                    break;
+                case "Novo":
+                    btnSalvar.Enabled = true;
+                    btnEditar.Enabled = false;
+                    btnExcluir.Enabled = false;
+                    break;
+            }
+        }
         private void pcImagemExercicio_Click(object sender, EventArgs e)
         {
             _comuns.AbrirImagem(pcImagemExercicio);
@@ -48,7 +64,9 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                 await _crudGenerico.Salvar(apiUrl, jsonSalvar);
                 ListarExercicios();
                 LimparCampos();
+                AtualizarComandos("Novo");
             }
+
         }
         private async void ListarExercicios()
         {
@@ -100,6 +118,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                 MessageBox.Show("Exercicio editado com sucesso", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarExercicios();
                 LimparCampos();
+                AtualizarComandos("Editar");
             }
         }
 
@@ -138,6 +157,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                     MessageBox.Show("Erro ao acessar a API: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            AtualizarComandos("Editar");
         }
 
         private void PreencherCamposComExercicio(ExercicioDTO? exercicioRecuperado)
@@ -166,6 +186,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                 MessageBox.Show("Exercício excluído com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarExercicios();
                 LimparCampos();
+                AtualizarComandos("Novo");
             }
         }
 

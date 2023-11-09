@@ -58,6 +58,7 @@
             txtSenha.PasswordChar = '*';
             txtSenha.Size = new Size(324, 27);
             txtSenha.TabIndex = 3;
+            txtSenha.KeyDown += txtSenha_KeyDown;
             // 
             // label2
             // 

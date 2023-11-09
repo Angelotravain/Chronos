@@ -26,6 +26,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             _mappearClienteDto = new();
             _ajustarComponentes = new();
             _ajustarComponentes.ajustarGrid(gridCliente);
+            AtualizarComandos("Novo");
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -118,7 +119,26 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
                     MessageBox.Show("Erro ao acessar a API: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            AtualizarComandos("Editar");
         }
+
+        private void AtualizarComandos(string comando)
+        {
+            switch (comando)
+            {
+                case "Editar":
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnExcluir.Enabled = true;
+                    break;
+                case "Novo":
+                    btnSalvar.Enabled = true;
+                    btnEditar.Enabled = false;
+                    btnExcluir.Enabled = false;
+                    break;
+            }
+        }
+
         private async void btnEditar_Click_1(object sender, EventArgs e)
         {
             int clienteId = Convert.ToInt32(IdClienteSelecionado);
@@ -130,6 +150,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             MessageBox.Show("Cliente editado com sucesso", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ListarClientes();
             LimparCampos();
+            AtualizarComandos("Novo");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -138,6 +159,7 @@ namespace Chronos.Avaliacao.Avaliacao.Cadastros
             MessageBox.Show("Cliente excluído com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ListarClientes();
             LimparCampos();
+            AtualizarComandos("Novo");
         }
     }
 }
