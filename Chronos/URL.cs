@@ -10,7 +10,6 @@ namespace Chronos
     {
         public static string UrlCliente() { return "https://localhost:5001/api/Cliente"; }
         public static string UrlExercicio() { return "https://localhost:5001/api/Exercicio"; }
-        public static string UrlFuncionario() { return "https://localhost:5001/api/Funcionario"; }
         public static string UrlUsuario() { return "https://localhost:5001/api/Usuario"; }
         public static string UrlAgendamento() { return "https://localhost:5001/api/Agendamento"; }
         public static string UrlAvaliacao() { return "https://localhost:5001/api/AvaliacaoFisica"; }
