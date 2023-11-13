@@ -30,7 +30,7 @@ namespace Chronos.Genericos.Cadastros.Mapeamento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao acessar a API: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              //  MessageBox.Show("Erro ao acessar a API: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return retorno;

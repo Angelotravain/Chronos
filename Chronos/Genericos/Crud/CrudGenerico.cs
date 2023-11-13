@@ -26,7 +26,7 @@ namespace Chronos.Genericos.Crud
             }
             catch (Exception ex)
             {
-                return "Erro ao acessar a API: " + ex.Message;
+                 return "Erro ao acessar a API: " + ex.Message;
             }
         }
         public async Task<string> Editar(string apiUrl, string json)
